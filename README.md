@@ -30,6 +30,12 @@ yarn develop --watch-admin
 ```
 Running at http://localhost:8000/
 
+How to install:
+--------
+1. In a root folder of your strapi project run `npm install strapi-plugin-entity-relationship-chart --save`
+2. Rebuild admin UI `strapi build`
+3. Run strapi `strapi develop`
+
 ## Features
 
 - Support JSON export & import
