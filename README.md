@@ -41,6 +41,14 @@ How to install:
 - Support JSON export & import
 - Delete all content of a type
 
+## How to test
+
+Create a single and collection type with:
+- text
+- number
+- checkbox
+- richtext
+
 **Not supported**
 
 - Media fields, e.g. image, video, etc.
