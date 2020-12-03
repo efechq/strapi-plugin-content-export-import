@@ -4,17 +4,17 @@
  *
  */
 
-import React, {memo, useEffect, useState} from 'react';
+import React, { memo, useEffect, useState } from "react";
 // import PropTypes from 'prop-types';
-import {map} from 'lodash';
-import {List, PluginHeader, ListWrapper} from "strapi-helper-plugin";
+import { map } from "lodash";
+import { List, PluginHeader, ListWrapper } from "strapi-helper-plugin";
 
-import pluginId from '../../pluginId';
-import Nav from '../../components/Nav';
-import {getModels,} from '../../utils/contentApis';
+import pluginId from "../../pluginId";
+import Nav from "../../components/Nav";
+import { getModels } from "../../utils/contentApis";
 import ExportModel from "./ExportModel";
 
-import {MainDiv} from './ui-components';
+import { MainDiv } from "./ui-components";
 
 const ExportPage = () => {
   const [models, setModels] = useState([]);
@@ -29,20 +29,23 @@ const ExportPage = () => {
   }, []);
 
   return (
-    <div className="container-fluid" style={{padding: "18px 30px"}}>
+    <div className="container-fluid" style={{ padding: "18px 30px" }}>
       <PluginHeader
         title="Export Content"
         description={pluginId + " / Export content to file"}
       />
-      <Nav/>
+      <p>
+        This importer can import/export json and csv files.
+        <span style={{color:'red'}}> The import can damage your data. </span>
+      </p>
+      <Nav />
       <MainDiv>
         <h2>Content Types</h2>
         <ListWrapper>
           <List>
-            {
-              map(models,
-                (model) => (<ExportModel key={model.uid} model={model}/>))
-            }
+            {map(models, (model) => (
+              <ExportModel key={model.uid} model={model} />
+            ))}
           </List>
         </ListWrapper>
       </MainDiv>
