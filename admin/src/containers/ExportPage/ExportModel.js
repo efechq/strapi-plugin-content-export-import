@@ -23,7 +23,13 @@ const ExportModel = ({ model }) => {
   const downloadCSV = () => {
     const current = new Date();
 
-    const csv = Papa.unparse(content, {
+    let array = content;
+    if (!Array.isArray(content)) {
+      // single types are not an array
+      array = [content]
+    }
+    console.log('array', array)
+    const csv = Papa.unparse(array, {
       quotes: true,
       quoteChar: '"',
       escapeChar: '"',
