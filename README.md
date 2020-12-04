@@ -4,7 +4,11 @@
 
 ## First Setup
 ```bash
-cd /<path-to-your-strapi-project
+
+# create a strapi project 
+yarn create strapi-app my-project --quickstart
+
+cd /my-project
 
 # create plugins folder if not exists
 # mkdir plugins
@@ -12,8 +16,8 @@ cd /<path-to-your-strapi-project
 # go to plugins folder
 cd plugins
 
-# clone the plugin code into a folder and skip the prefix
-git clone git@github.com:lazurey/strapi-plugin-content-export-import.git content-export-import
+# clone the plugin code into a folder and skip the prefix. The folder name has to be the plugin name
+git clone https://github.com/efechq/strapi-plugin-content-export-import content-export-import
 # install dependencies
 cd content-export-import && yarn install
 # build the plugin
@@ -43,7 +47,7 @@ How to install:
 
 ## How to test
 
-Create a single and collection type with:
+Create a single and collection type without draft modus and the following fields:
 - text
 - number
 - checkbox
