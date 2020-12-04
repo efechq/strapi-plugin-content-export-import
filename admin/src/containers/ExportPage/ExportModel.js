@@ -6,6 +6,7 @@ import { fetchEntries } from "../../utils/contentApis";
 import { HFlex, ModelItem } from "./ui-components";
 import JsonDataDisplay from "../../components/JsonDataDisplay";
 
+
 const ExportModel = ({ model }) => {
   const [fetching, setFetching] = useState(false);
   const [content, setContent] = useState(null);
@@ -24,11 +25,11 @@ const ExportModel = ({ model }) => {
     const current = new Date();
 
     let array = content;
-    if (!Array.isArray(content)) {
-      // single types are not an array
-      array = [content]
+
+    if (!Array.isArray(array)) {
+      // strapi singletypes are not an array
+      array = [content];
     }
-    console.log('array', array)
     const csv = Papa.unparse(array, {
       quotes: true,
       quoteChar: '"',
