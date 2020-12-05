@@ -30,10 +30,12 @@ export const readLocalFileCsv = (file) => {
       // var encoding = Encoding.detect(codes);
 
       Papa.parse(file, {
+        delimiter: "",	// auto-detect
+        newline: "",	// auto-detect
+        dynamicTyping: true,
         skipEmptyLines: true,
         header: true,
         // encoding: encoding,
-        delimiter: "",
 
         error: function (error) {
           console.log("readLocalFileCsv error", error);

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import moment from 'moment'
 import { Button } from "strapi-helper-plugin";
 import { saveAs } from "file-saver";
 import Papa from "papaparse";
@@ -43,7 +44,7 @@ const ExportModel = ({ model }) => {
       type: "text/plain;charset=utf-8;",
     });
 
-    saveAs(file, `${model.apiID}-${current.getTime()}.csv`, {
+    saveAs(file, `${model.apiID}-${moment(current).format('YYYY-MM-DD-HH-mm')}.csv`, {
       type: "text/plain;charset=utf-8",
     });
   };
@@ -52,7 +53,7 @@ const ExportModel = ({ model }) => {
     const current = new Date();
     const file = new File(
       [JSON.stringify(content)],
-      `${model.apiID}-${current.getTime()}.json`,
+      `${model.apiID}-${moment(current).format('YYYY-MM-DD-HH-mm')}.json`,
       { type: "application/json;charset=utf-8" }
     );
     saveAs(file);
